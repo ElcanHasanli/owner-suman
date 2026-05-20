@@ -54,6 +54,15 @@ Panel: [http://localhost:3000](http://localhost:3000)
 | `/companies/[id]` | Şirkət detalı, lisenziya |
 | `/companies/[id]/users` | Admin/kuryer hesabları |
 
+## Mobil (APK + iOS)
+
+Android və iOS üçün Capacitor quraşdırılıb. Ətraflı: **[MOBILE.md](./MOBILE.md)**
+
+```bash
+npm run mobile:android   # Android Studio → APK
+npm run mobile:ios       # Xcode (Mac)
+```
+
 ## MVP qəbul kriteriyaları
 
 - Owner login/logout

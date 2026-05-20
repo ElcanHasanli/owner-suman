@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SUMAN Owner</string>
+    <string name="title_activity_main">SUMAN Owner</string>
+    <string name="package_name">az.khamsacraft.suman.owner</string>
+    <string name="custom_url_scheme">az.khamsacraft.suman.owner</string>
+</resources>
