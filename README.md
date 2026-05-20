@@ -15,17 +15,17 @@ npm install
 cp .env.local.example .env.local
 ```
 
-`.env.local` faylında API ünvanını təyin edin:
+**Lokal:** `.env.local` (git-ə düşmür):
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5001
 ```
 
-Production:
+**Production build** (`npm run build` / deploy): repoda `.env.production` var — sorğular `https://api.suman.khamsacraft.az/api/...` ünvanına gedir.
 
-```env
-NEXT_PUBLIC_API_URL=https://api.suman.khamsacraft.az
-```
+> `.env.local` faylı **bütün mühitlərdə** `.env` və `.env.production`-ı üstələyir. Serverdə deploy edərkən `.env.local` içində `localhost` olmamalıdır; yalnız öz maşınında saxlayın.
+
+Hosting (Vercel və s.): `NEXT_PUBLIC_API_URL=https://api.suman.khamsacraft.az` environment variable təyin edin.
 
 ## İşə salma
 
