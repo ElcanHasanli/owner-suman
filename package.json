@@ -11,7 +11,11 @@
     "cap:android": "cap open android",
     "cap:ios": "cap open ios",
     "mobile:sync": "cap sync",
+    "mobile:android:sync": "cap sync android",
     "mobile:android": "cap sync android && cap open android",
+    "mobile:android:open": "cap open android",
+    "mobile:apk:debug": "cd android && ./gradlew assembleDebug",
+    "mobile:icons": "capacitor-assets generate --iconBackgroundColor \"#0b6e99\" --splashBackgroundColor \"#0b6e99\"",
     "mobile:ios": "cap sync ios && cap open ios"
   },
   "dependencies": {
@@ -26,6 +30,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

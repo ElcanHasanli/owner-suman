@@ -63,6 +63,8 @@ npm run mobile:android   # Android Studio → APK
 npm run mobile:ios       # Xcode (Mac)
 ```
 
+TestFlight (çox iPhone-a paylama): **[MOBILE.md § TestFlight](./MOBILE.md#testflight-başqa-iphone-lara-paylama)** — Apple Developer $99/il lazımdır.
+
 ## MVP qəbul kriteriyaları
 
 - Owner login/logout
