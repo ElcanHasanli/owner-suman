@@ -52,11 +52,21 @@ npm run mobile:android
 npm run mobile:android:sync
 ```
 
-**APK terminaldan** (Studio + JDK quraşdırıldıqdan sonra):
+**APK terminaldan** (Android Studio quraşdırılıbsa — bir əmr):
 
 ```bash
-npm run mobile:apk:debug
+npm run mobile:apk
 ```
+
+Hazır fayl: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+**`SDK location not found` xətası:** `android/local.properties` lazımdır:
+
+```properties
+sdk.dir=/Users/SIZIN_ADINIZ/Library/Android/sdk
+```
+
+və ya: `cp android/local.properties.example android/local.properties` və yolu düzəldin.
 
 ---
 
@@ -132,6 +142,24 @@ npm run mobile:ios
 4. App Store üçün: **Product → Archive → Distribute**
 
 > iOS build **yalnız macOS**-da mümkündür.
+
+### iOS yeniləmə (öz telefonunuz)
+
+Panel vebdədirsə (`suman.khamsacraft.az`) çox dəyişiklik üçün **yeni build lazım deyil**. Yeni build lazımdır: ikon, splash, app adı, native plugin.
+
+```bash
+npm run mobile:ios:update
+```
+
+Xcode-da:
+
+1. **Any iOS Device (arm64)** və ya öz iPhone
+2. **Product → Clean Build Folder** (⇧⌘K) — köhnə build qalıbsa
+3. **▶ Run** (USB ilə telefon) — və ya **Product → Archive** (TestFlight)
+
+Versiya: Xcode → **App** target → **General** → **Version** `1.0.1`, **Build** `2` (hər yeniləmədə Build artırın).
+
+**TestFlight:** Archive → Distribute → App Store Connect → TestFlight-da yeni build seçin.
 
 ### Signing xətası (provisioning profile / no devices)
 

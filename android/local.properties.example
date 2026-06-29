@@ -1,0 +1,6 @@
+# Kopyalayın: cp local.properties.example local.properties
+# Mac (Android Studio):
+sdk.dir=/Users/SIZIN_ISTIFADECI/Library/Android/sdk
+
+# Windows nümunəsi:
+# sdk.dir=C\:\\Users\\Siz\\AppData\\Local\\Android\\Sdk
