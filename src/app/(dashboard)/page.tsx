@@ -34,9 +34,14 @@ export default function DashboardPage() {
         title="Dashboard"
         description="Platform üzrə ümumi statistika"
         action={
-          <Link href="/companies/new" className={shared.btnPrimary}>
-            Yeni şirkət
-          </Link>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <Link href="/live" className={shared.btnPrimary}>
+              Canlı monitor
+            </Link>
+            <Link href="/companies/new" className={shared.btnSecondary}>
+              Yeni şirkət
+            </Link>
+          </div>
         }
       />
 

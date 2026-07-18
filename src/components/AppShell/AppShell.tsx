@@ -6,6 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import styles from "./AppShell.module.css";
 
 const navItems = [
+  { href: "/live", label: "Canlı" },
   { href: "/", label: "Dashboard" },
   { href: "/companies", label: "Şirkətlər" },
 ];
@@ -30,7 +31,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             const active =
               item.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(item.href);
+                : pathname === item.href ||
+                  pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}

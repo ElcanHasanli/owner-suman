@@ -100,12 +100,20 @@ export default function CompanyDetailPage() {
         title={company.name}
         description={`ID: ${company.id}`}
         action={
-          <Link
-            href={`/companies/${company.id}/users`}
-            className={shared.btnPrimary}
-          >
-            İstifadəçilər
-          </Link>
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            <Link
+              href={`/companies/${company.id}/monitor`}
+              className={shared.btnPrimary}
+            >
+              Monitor
+            </Link>
+            <Link
+              href={`/companies/${company.id}/users`}
+              className={shared.btnSecondary}
+            >
+              İstifadəçilər
+            </Link>
+          </div>
         }
       />
 

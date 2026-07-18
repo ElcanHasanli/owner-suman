@@ -61,6 +61,8 @@ export default function CompaniesPage() {
                   <tr key={c.id}>
                     <td>
                       <Link href={`/companies/${c.id}`}>{c.name}</Link>
+                      {" · "}
+                      <Link href={`/companies/${c.id}/monitor`}>Monitor</Link>
                     </td>
                     <td>
                       <code>{c.license_code}</code>

@@ -79,3 +79,97 @@ export interface RegenerateLicenseResponse {
   license_code: string;
   message?: string;
 }
+
+export type LivePeriod = "today" | "yesterday" | "week" | "month" | "custom";
+
+export interface LiveTotals {
+  active_orders: number;
+  completed_orders: number;
+  sales: number;
+  debt_given: number;
+  credit: number;
+  expenses: number;
+  net_balance: number;
+}
+
+export interface LiveCompanyRow {
+  company_id: number;
+  company_name: string;
+  is_active: boolean;
+  active_orders: number;
+  completed_orders: number;
+  sales: number;
+  debt_given: number;
+  credit: number;
+  prepaid?: number;
+  courier_balance?: number;
+  expenses: number;
+  net_balance: number;
+}
+
+export interface LiveOverviewResponse {
+  period: LivePeriod | string;
+  startDate: string | null;
+  endDate: string | null;
+  generated_at: string;
+  totals: LiveTotals;
+  companies: LiveCompanyRow[];
+}
+
+export type LiveEventType =
+  | "order_created"
+  | "order_assigned"
+  | "order_completed"
+  | "order_updated"
+  | "expense_created"
+  | "debt_collected"
+  | "warehouse_updated"
+  | string;
+
+export interface LiveFeedEvent {
+  type: LiveEventType;
+  company_id: number;
+  company_name: string;
+  entity_id: number;
+  message: string;
+  actor_name: string | null;
+  amount: number | null;
+  event_at: string;
+  event_at_baku: string;
+  meta?: Record<string, unknown>;
+}
+
+export interface LiveFeedResponse {
+  generated_at: string;
+  company_id: number | null;
+  events: LiveFeedEvent[];
+}
+
+export interface CompanyMonitorResponse {
+  company: {
+    id: number;
+    name: string;
+    is_active: boolean;
+    license_code?: string;
+  };
+  dashboard: Record<string, unknown>;
+  by_courier: Array<Record<string, unknown>>;
+  active_orders: Array<Record<string, unknown>>;
+  completed_orders: Array<Record<string, unknown>>;
+  expenses: Array<Record<string, unknown>>;
+  debtPayments: Array<Record<string, unknown>>;
+  warehouses: Array<Record<string, unknown>>;
+  users: Array<{
+    id: number;
+    name: string;
+    role: string;
+    status: string;
+  }>;
+  counts: {
+    active_orders: number;
+    completed_orders: number;
+    expenses: number;
+    debt_payments: number;
+  };
+  generated_at?: string;
+}

@@ -96,6 +96,56 @@ export const ownerApi = {
       `/api/owner/companies/${companyId}/users/${userId}`,
       { method: "DELETE" },
     ),
+
+  getLive: (params?: {
+    period?: import("@/types").LivePeriod | string;
+    startDate?: string;
+    endDate?: string;
+  }) => {
+    const q = new URLSearchParams();
+    if (params?.period) q.set("period", params.period);
+    if (params?.startDate) q.set("startDate", params.startDate);
+    if (params?.endDate) q.set("endDate", params.endDate);
+    const qs = q.toString();
+    return api<import("@/types").LiveOverviewResponse>(
+      `/api/owner/live${qs ? `?${qs}` : ""}`,
+    );
+  },
+
+  getLiveFeed: (params?: {
+    limit?: number;
+    company_id?: number;
+    since?: string;
+  }) => {
+    const q = new URLSearchParams();
+    if (params?.limit != null) q.set("limit", String(params.limit));
+    if (params?.company_id != null) {
+      q.set("company_id", String(params.company_id));
+    }
+    if (params?.since) q.set("since", params.since);
+    const qs = q.toString();
+    return api<import("@/types").LiveFeedResponse>(
+      `/api/owner/live/feed${qs ? `?${qs}` : ""}`,
+    );
+  },
+
+  getCompanyMonitor: (
+    id: number,
+    params?: {
+      period?: import("@/types").LivePeriod | string;
+      startDate?: string;
+      endDate?: string;
+    },
+  ) => {
+    const q = new URLSearchParams();
+    if (params?.period) q.set("period", params.period);
+    if (params?.startDate) q.set("startDate", params.startDate);
+    if (params?.endDate) q.set("endDate", params.endDate);
+    const qs = q.toString();
+    return api<import("@/types").CompanyMonitorResponse>(
+      `/api/owner/companies/${id}/monitor${qs ? `?${qs}` : ""}`,
+    );
+  },
 };
 
 export const authApi = {
